@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drinks del Mundial — Siente el Sabor del Mundo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--verde:#0a5c2e;--amarelo:#f5c518;--amarelo-escuro:#c9a010;--branco:#faf9f5;--preto:#0d0d0d}
+html{scroll-behavior:smooth}
+body{background:var(--preto);color:var(--branco);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+.faixa{background:var(--verde);padding:.9rem 1.5rem;text-align:center;font-size:13px;color:rgba(250,249,245,.9);letter-spacing:.03em}
+.faixa strong{color:var(--amarelo)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(245,197,24,.1) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 15% 100%,rgba(10,92,46,.3) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 85% 100%,rgba(0,39,118,.2) 0%,transparent 60%);pointer-events:none}
+.hero-badge{display:inline-block;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.3);color:var(--amarelo);font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:2rem;animation:fadeDown .7s ease both}
+.hero-titulo{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,15vw,12rem);line-height:.85;color:var(--branco);animation:fadeDown .7s .1s ease both}
+.hero-titulo span{color:var(--amarelo);display:block}
+.hero-sub{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.6rem);color:rgba(250,249,245,.75);margin-top:1.5rem;max-width:520px;line-height:1.5;animation:fadeDown .7s .2s ease both}
+.hero-sensorial{margin-top:1rem;font-size:clamp(.9rem,1.8vw,1rem);color:rgba(250,249,245,.4);max-width:460px;line-height:1.75;animation:fadeDown .7s .25s ease both}
+.hero-flags{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:2rem;max-width:500px;animation:fadeDown .7s .3s ease both}
+.flag-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(250,249,245,.65)}
+.flag-tag .fi{width:16px;height:12px;border-radius:2px;flex-shrink:0}
+.hero-cta{margin-top:2.5rem;animation:fadeDown .7s .4s ease both}
+.btn-principal{display:inline-block;background:var(--amarelo);color:var(--preto);font-weight:500;font-size:1rem;padding:1rem 2.5rem;border-radius:100px;text-decoration:none;letter-spacing:.02em;transition:transform .15s,background .15s;border:none;cursor:pointer}
+.btn-principal:hover{background:var(--amarelo-escuro);transform:translateY(-2px)}
+.hero-preco{margin-top:1rem;font-size:13px;color:rgba(250,249,245,.4)}
+.hero-preco strong{color:var(--amarelo);font-weight:500}
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(255,255,255,.06);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.num-item{background:var(--preto);padding:2.5rem 1.5rem;text-align:center}
+.num-valor{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--amarelo);line-height:1}
+.num-label{font-size:12px;color:rgba(250,249,245,.45);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+.secao{padding:5rem 1.5rem;max-width:900px;margin:0 auto}
+.secao-label{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--amarelo);margin-bottom:1rem}
+.secao-titulo{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);line-height:.95;color:var(--branco);margin-bottom:1.5rem}
+.secao-desc{font-size:1.05rem;color:rgba(250,249,245,.6);max-width:580px;line-height:1.8}
+.frase-sensorial{margin:2rem 0;padding:1.5rem 2rem;border-left:3px solid var(--amarelo);background:rgba(245,197,24,.04);border-radius:0 12px 12px 0}
+.frase-sensorial p{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.05rem,2vw,1.25rem);color:rgba(250,249,245,.8);line-height:1.75}
+.drinks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;margin-top:3rem}
+.drink-card{background:#0d120f;padding:1.75rem;transition:background .2s}
+.drink-card:hover{background:#111a13}
+.drink-pais{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amarelo);margin-bottom:6px}
+.drink-nome{font-family:'Instrument Serif',serif;font-size:1.4rem;color:var(--branco);margin-bottom:10px;line-height:1.2}
+.drink-sensorial{font-size:13px;color:rgba(250,249,245,.55);line-height:1.7;margin-bottom:14px;font-style:italic}
+.drink-tags{display:flex;gap:6px;flex-wrap:wrap}
+.drink-tag{font-size:10px;padding:3px 9px;border-radius:100px;border:1px solid rgba(255,255,255,.1);color:rgba(250,249,245,.5)}
+.drink-tag.verde{border-color:rgba(26,140,70,.4);color:#5dcaa5}
+.experiencia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
+.exp-item{padding:1.5rem;border:1px solid rgba(255,255,255,.06);border-radius:14px;background:rgba(255,255,255,.02);transition:border-color .2s}
+.exp-item:hover{border-color:rgba(245,197,24,.2)}
+.exp-momento{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--amarelo);margin-bottom:8px}
+.exp-cena{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.05rem;color:var(--branco);margin-bottom:10px;line-height:1.45}
+.exp-desc{font-size:13px;color:rgba(250,249,245,.5);line-height:1.6}
+.viagem-secao{padding:5rem 1.5rem;max-width:900px;margin:0 auto}
+.viagem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:2.5rem}
+.viagem-card{padding:1.2rem 1.25rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;transition:all .2s}
+.viagem-card:hover{background:rgba(245,197,24,.05);border-color:rgba(245,197,24,.2);transform:translateY(-2px)}
+.viagem-pais{font-size:11px;color:var(--amarelo);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.viagem-sabor{font-family:'Instrument Serif',serif;font-style:italic;font-size:.95rem;color:rgba(250,249,245,.7);line-height:1.5}
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem}
+.passo{padding-left:1.5rem;border-left:2px solid rgba(245,197,24,.2)}
+.passo-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(245,197,24,.15);line-height:1;margin-bottom:6px}
+.passo-titulo{font-weight:500;color:var(--branco);margin-bottom:6px;font-size:.95rem}
+.passo-desc{font-size:13px;color:rgba(250,249,245,.5);line-height:1.6}
+.incluso-lista{margin-top:2.5rem;display:flex;flex-direction:column;gap:12px}
+.incluso-item{display:flex;align-items:flex-start;gap:14px;padding:1.1rem 1.4rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;transition:border-color .2s}
+.incluso-item:hover{border-color:rgba(245,197,24,.15)}
+.incluso-icon{width:34px;height:34px;border-radius:8px;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.15);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.incluso-texto strong{display:block;font-size:14px;font-weight:500;color:var(--branco);margin-bottom:2px}
+.incluso-texto span{font-size:13px;color:rgba(250,249,245,.45)}
+.estrategia-box{margin-top:3rem;padding:2.5rem;background:linear-gradient(135deg,rgba(10,92,46,.18),rgba(0,39,118,.12));border:1px solid rgba(26,140,70,.2);border-radius:16px}
+.estrategia-titulo{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--branco);margin-bottom:1rem}
+.estrategia-desc{font-size:1rem;color:rgba(250,249,245,.6);line-height:1.8;max-width:600px}
+.estr-linha{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem}
+.estr-pill{font-size:12px;padding:5px 14px;border-radius:100px;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);color:var(--amarelo)}
+.divisor{height:1px;background:rgba(255,255,255,.06);max-width:900px;margin:0 auto}
+.preco-section{padding:5rem 1.5rem;text-align:center;max-width:600px;margin:0 auto}
+.preco-de{font-size:13px;color:rgba(250,249,245,.35);text-decoration:line-through;margin-bottom:4px}
+.preco-valor{font-family:'Bebas Neue',sans-serif;font-size:6rem;color:var(--amarelo);line-height:1}
+.preco-label{font-size:13px;color:rgba(250,249,245,.45);margin-bottom:2rem}
+.preco-frase{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.1rem;color:rgba(250,249,245,.5);margin-bottom:2rem;line-height:1.7;max-width:440px;margin-left:auto;margin-right:auto}
+.garantia{margin-top:1.5rem;font-size:12px;color:rgba(250,249,245,.3)}
+footer{padding:3rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,.05);font-size:12px;color:rgba(250,249,245,.2)}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+
+<!-- TRACKING CONFIGURATION
+  1) Cole aqui o script oficial da UTMFY quando você gerar dentro da sua conta.
+  2) Cole aqui também Meta Pixel / Google Ads / GA4 se você for instalar direto na landing page.
+  IMPORTANTE: para ficar 100%, também configure Pixel/Webhook/Postback dentro da Hotmart e na UTMFY.
+-->
+<!-- UTMFY SCRIPT AQUI -->
+<!-- META PIXEL / GOOGLE ADS / GA4 AQUI -->
+</head>
+<body>
+
+<div class="faixa">
+  ⏱ El Mundial 2026 empieza el <strong>11 de junio</strong> — el olor a asado ya está en el aire
+</div>
+
+<section class="hero">
+  <div class="hero-badge">Kit Digital · Copa del Mundo 2026</div>
+  <h1 class="hero-titulo">Drinks<br><span>del Mundial</span></h1>
+  <p class="hero-sub">Cierra los ojos. Ahora imagina el borde helado del vaso rozando tus labios.</p>
+  <p class="hero-sensorial">El ácido del limón. El gas que sube. El hielo golpeando el vidrio. La barra gritando el gol. Ese sabor tiene nombre — y cada país del mundo tiene el suyo.</p>
+
+  <div class="hero-flags">
+    <span class="flag-tag"><span class="fi fi-br"></span> Brasil</span>
+    <span class="flag-tag"><span class="fi fi-mx"></span> México</span>
+    <span class="flag-tag"><span class="fi fi-ar"></span> Argentina</span>
+    <span class="flag-tag"><span class="fi fi-de"></span> Alemania</span>
+    <span class="flag-tag"><span class="fi fi-jp"></span> Japón</span>
+    <span class="flag-tag"><span class="fi fi-ma"></span> Marruecos</span>
+    <span class="flag-tag"><span class="fi fi-gb-sct"></span> Escocia</span>
+    <span class="flag-tag">+ 41 países</span>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#comprar" class="btn-principal">Quiero sentir ese sabor</a>
+    <p class="hero-preco">Por solo <strong>$9.99 USD</strong> — acceso inmediato</p>
+  </div>
+</section>
+
+<div class="numeros">
+  <div class="num-item"><div class="num-valor">48</div><div class="num-label">sabores del mundo</div></div>
+  <div class="num-item"><div class="num-valor">96</div><div class="num-label">versiones para probar</div></div>
+  <div class="num-item"><div class="num-valor">39</div><div class="num-label">días de Mundial para brindar</div></div>
+  <div class="num-item"><div class="num-valor">1</div><div class="num-label">vaso en mano. siempre.</div></div>
+</div>
+
+<section class="secao reveal">
+  <div class="secao-label">La experiencia</div>
+  <h2 class="secao-titulo">No es solo una bebida.<br>Es el sabor de<br>estar ahí.</h2>
+  <div class="frase-sensorial">
+    <p>Imagina servir el Fernet argentino helado cuando Argentina entra a la cancha. El amargor que baja despacio, el gas que estalla, el olor a limón que sube antes del primer sorbo. Tu grupo va a mirar el vaso y preguntar: <em>"¿dónde aprendiste esto?"</em></p>
+  </div>
+  <p class="secao-desc">48 países en el Mundial. 48 bebidas que cargan siglos de cultura, clima, pasión y fútbol. Cada receta fue creada para activar un sentido que ni sabías que tenías — el sabor de la hinchada.</p>
+</section>
+
+<div class="divisor"></div>
+
+<section class="secao reveal">
+  <div class="secao-label">Siente antes de probar</div>
+  <h2 class="secao-titulo">Abre el kit.<br>Elige un país.<br>Siente la diferencia.</h2>
+
+  <div class="drinks-grid">
+    <div class="drink-card">
+      <div class="drink-pais">🇧🇷 Brasil</div>
+      <div class="drink-nome">Caipirinha Ouro Verde</div>
+      <div class="drink-sensorial">El limón aplastado en el azúcar. El ruido del hielo picado cayendo en el vaso. La cachaça que calienta por dentro mientras el Mundial enfría el aire alrededor.</div>
+      <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-pais">🇦🇷 Argentina</div>
+      <div class="drink-nome">Fernet del Campeón</div>
+      <div class="drink-sensorial">Amargo, intenso, helado. El gas de la Cola subiendo por el vaso. El olor que recuerda una noche en Buenos Aires — y el grito de la hinchada bicampeona.</div>
+      <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-pais">🇫🇷 Francia</div>
+      <div class="drink-nome">Kir Royal de Mbappé</div>
+      <div class="drink-sensorial">Las burbujas subiendo en la copa. El morado de la grosella extendiéndose. Dulce, delicado, elegante — como el fútbol francés cuando está inspirado.</div>
+      <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-pais">🇯🇵 Japón</div>
+      <div class="drink-nome">Yuzu Highball</div>
+      <div class="drink-sensorial">Cítrico, limpio, sorprendente. El aroma del yuzu antes del primer sorbo. Como Japón en la cancha — nadie lo espera, todos lo recuerdan.</div>
+      <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-pais">🇲🇦 Marruecos</div>
+      <div class="drink-nome">Té de la Estrella del Norte</div>
+      <div class="drink-sensorial">Menta fresca. Miel cayendo despacio. El hielo rompiendo el calor de una tarde de partido. La bebida que sorprendió al mundo — como la selección que representa.</div>
+      <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
+    </div>
+    <div class="drink-card">
+      <div class="drink-pais">🇩🇪 Alemania</div>
+      <div class="drink-nome">Radler del Medio Tiempo</div>
+      <div class="drink-sensorial">Ligero, refrescante, preciso. La cerveza que encuentra la limonada. El vaso más rico del descanso. Eficiencia alemana en forma de bebida.</div>
+      <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<section class="secao reveal">
+  <div class="secao-label">Dónde va a pasar</div>
+  <h2 class="secao-titulo">Cada gol merece<br>un vaso en mano.</h2>
+  <div class="experiencia-grid">
+    <div class="exp-item">
+      <div class="exp-momento">Antes del partido</div>
+      <div class="exp-cena">"Chicos, hoy es Japón vs España. ¿Quién quiere el Yuzu Highball?"</div>
+      <div class="exp-desc">Ya sabes qué servir antes del pitazo inicial. El drink del país que va a jugar. Tu grupo nunca más va a querer ver el partido en otro lugar.</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-momento">En el gol</div>
+      <div class="exp-cena">El vaso en alto. El hielo moviéndose. El sabor que se va a mezclar con el recuerdo de ese momento para siempre.</div>
+      <div class="exp-desc">Las bebidas crean memoria. En diez años, vas a recordar el sabor que tenías en la boca cuando Brasil marcó.</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-momento">Para quien no toma</div>
+      <div class="exp-cena">"Este es el mocktail de Marruecos — sin alcohol, pero con todo el sabor."</div>
+      <div class="exp-desc">Cada receta tiene versión sin alcohol. Niños, embarazadas, quien no toma — todos tienen un vaso especial en mano.</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-momento">En el bar o restaurante</div>
+      <div class="exp-cena">"Menú del Mundial: hoy, con el partido de México, la Margarita de la Apertura."</div>
+      <div class="exp-desc">Una experiencia temática que hace que el cliente vuelva al próximo partido. Y al siguiente. Y a la final.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<section class="viagem-secao reveal">
+  <div class="secao-label">Un viaje por el paladar</div>
+  <h2 class="secao-titulo" style="max-width:900px;margin:0 auto 1rem">El mundo entero<br>en tu vaso.</h2>
+  <p class="secao-desc" style="max-width:900px;margin:0 auto 0">Cada país tiene un sabor que cuenta su historia. Una muestra de lo que vas a descubrir.</p>
+
+  <div class="viagem-grid">
+    <div class="viagem-card">
+      <div class="viagem-pais">🇰🇷 Corea del Sur</div>
+      <div class="viagem-sabor">El Soju Bomb — la bebida más vendida del mundo. Un shot que se hunde en la cerveza y explota en la boca.</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇵🇹 Portugal</div>
+      <div class="viagem-sabor">La Ginjinha del CR7 — cereza, limón y el último baile del mejor jugador del mundo.</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇹🇷 Turquía</div>
+      <div class="viagem-sabor">El Rakı de Estambul — transparente que se vuelve blanco con el hielo. Llamado "León de leche".</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇸🇳 Senegal</div>
+      <div class="viagem-sabor">El Bissap Power — hibisco rojo intenso que parece fiesta en cada sorbo.</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇻🇪 Venezuela</div>
+      <div class="viagem-sabor">El Ponche Crema — la bebida de la primera clasificación histórica. Ron, crema y celebración.</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇵🇾 Paraguay</div>
+      <div class="viagem-sabor">El Tereré helado — patrimonio de la UNESCO. Mate que refresca en vez de calentar.</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇦🇺 Australia</div>
+      <div class="viagem-sabor">El Espresso Martini — café que se convierte en coctel. La obsesión australiana en forma de brindis.</div>
+    </div>
+    <div class="viagem-card">
+      <div class="viagem-pais">🇨🇼 Curazao</div>
+      <div class="viagem-sabor">El Blue Curaçao Sunset — azul que parece el Caribe. El licor que viajó el mundo sin que nadie supiera de dónde venía.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<section class="secao reveal">
+  <div class="secao-label">Qué viene en el kit</div>
+  <h2 class="secao-titulo">Todo lo que necesitas<br>para ser el bartender<br>de la hinchada.</h2>
+  <div class="frase-sensorial">
+    <p>No es un libro de recetas. Es un pasaporte de sabores. Cada página, un país. Cada país, un vaso que nunca imaginaste que ibas a querer tanto probar.</p>
+  </div>
+  <div class="incluso-lista">
+    <div class="incluso-item">
+      <div class="incluso-icon">🍹</div>
+      <div class="incluso-texto"><strong>48 recetas de drinks temáticos</strong><span>Una por selección — con ingredientes simples que encontrás en cualquier mercado cerca de tu casa</span></div>
+    </div>
+    <div class="incluso-item">
+      <div class="incluso-icon">🫧</div>
+      <div class="incluso-texto"><strong>96 versiones en total — con y sin alcohol</strong><span>El mocktail tiene tanto sabor como el original. Nadie se queda afuera de la fiesta</span></div>
+    </div>
+    <div class="incluso-item">
+      <div class="incluso-icon">⚡</div>
+      <div class="incluso-texto"><strong>Cada receta en hasta 5 pasos</strong><span>Hecha para que la prepares en el entretiempo — sin salir de la fiesta, sin perderte el partido</span></div>
+    </div>
+    <div class="incluso-item">
+      <div class="incluso-icon">🌍</div>
+      <div class="incluso-texto"><strong>La historia detrás de cada vaso</strong><span>El sabor tiene sentido cuando entendés de dónde viene — y tu grupo va a amar escucharlo</span></div>
+    </div>
+    <div class="incluso-item">
+      <div class="incluso-icon">📲</div>
+      <div class="incluso-texto"><strong>Acceso inmediato en celular y computadora</strong><span>Consultá en la cocina directo desde el teléfono mientras preparás. Siempre a mano, en cualquier partido</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<section class="secao reveal">
+  <div class="secao-label">Para quién es</div>
+  <h2 class="secao-titulo">¿Te reconocés<br>en alguno de estos?</h2>
+  <div class="passos">
+    <div class="passo">
+      <div class="passo-num">01</div>
+      <div class="passo-titulo">El anfitrión que quiere sorprender</div>
+      <div class="passo-desc">Recibís a tus amigos, hacés el asado — y todavía querés ese elemento que nadie esperaba. El drink que hace que todos pregunten dónde aprendiste.</div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">02</div>
+      <div class="passo-titulo">La familia entera en el living</div>
+      <div class="passo-desc">Niños, embarazadas, quien no toma, quien adora. Cada uno con su vaso especial. Nadie se queda afuera de la celebración.</div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">03</div>
+      <div class="passo-titulo">El bar que quiere llenarse</div>
+      <div class="passo-desc">Menú temático por partido. El drink del país que juega ese día. Una experiencia que el cliente no encuentra en ningún otro lugar de la ciudad.</div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">04</div>
+      <div class="passo-titulo">Quien ama descubrir el mundo</div>
+      <div class="passo-desc">Cada receta es una ventana abierta a otro país. Probás el sabor y entendés de dónde viene.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<section class="secao reveal">
+  <div class="secao-label">39 días de Mundial</div>
+  <h2 class="secao-titulo">104 partidos.<br>104 momentos<br>para brindar.</h2>
+  <div class="estrategia-box">
+    <div class="estrategia-titulo">Usá cada partido como excusa para abrir un nuevo sabor</div>
+    <p class="estrategia-desc">Brasil vs Marruecos el 13 de junio — el Té de la Estrella del Norte está esperando. Japón vs España — ¿cuál elegís, el Yuzu Highball o la Sangria de la Roja? Cada partido es un nuevo descubrimiento. Y cuando alguien pregunte qué estás tomando, vas a tener una historia para contar.</p>
+    <div class="estr-linha">
+      <span class="estr-pill">104 partidos en el Mundial</span>
+      <span class="estr-pill">48 sabores diferentes</span>
+      <span class="estr-pill">39 días para explorar</span>
+      <span class="estr-pill">0 partidos sin un vaso en mano</span>
+    </div>
+  </div>
+</section>
+
+<div class="divisor"></div>
+
+<section class="preco-section reveal" id="comprar">
+  <div class="secao-label" style="text-align:center">Asegurá el tuyo ahora</div>
+  <p class="preco-frase">El sabor del Mundial 2026 empieza antes del pitazo inicial. Empieza cuando abrís el kit, elegís el país y preparás el primer vaso.</p>
+  <div class="preco-de">Antes $19.99 USD</div>
+  <div class="preco-valor">$9.99</div>
+  <div class="preco-label">pago único · acceso inmediato · de por vida</div>
+  <a href="https://pay.hotmart.com/G105682623O" class="btn-principal hotmart-checkout" target="_blank" rel="noopener noreferrer" style="font-size:1.1rem;padding:1.1rem 3rem">Quiero sentir el sabor del mundo</a>
+  <div class="frase-sensorial" style="margin-top:2rem;text-align:left">
+    <p>48 países. 48 historias. 48 sabores que nunca vas a olvidar — porque cada uno va a estar mezclado con el recuerdo de un gol, de un grito, de una noche inolvidable de Mundial.</p>
+  </div>
+  <p class="garantia">Pago seguro · PDF enviado al instante · Funciona en celular y computadora</p>
+</section>
+
+<footer>© 2026 Drinks del Mundial · Todos los derechos reservados</footer>
+
+<script>
+// Animação original da página
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.08});
+reveals.forEach(r=>observer.observe(r));
+
+// Checkout Hotmart + preservação automática de UTMs
+// Quando o visitante chegar com ?utm_source=... na landing page,
+// esses parâmetros serão enviados também para o checkout da Hotmart.
+(function(){
+  const checkoutBase = 'https://pay.hotmart.com/G105682623O';
+  const currentParams = new URLSearchParams(window.location.search);
+  const checkoutLinks = document.querySelectorAll('a.hotmart-checkout');
+
+  checkoutLinks.forEach(link => {
+    const finalUrl = new URL(checkoutBase);
+    currentParams.forEach((value, key) => {
+      if (key.toLowerCase().startsWith('utm_') || ['src','sck','fbclid','gclid','ttclid'].includes(key.toLowerCase())) {
+        finalUrl.searchParams.set(key, value);
+      }
+    });
+    link.href = finalUrl.toString();
+  });
+})();
+</script>
+</body>
+</html>
