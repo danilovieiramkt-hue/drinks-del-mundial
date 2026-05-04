@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drinks del Mundial — Siente el Sabor del Mundo</title>
+<title>Drinks del Mundial 2026 — 48 Recetas de Bebidas para la Copa</title>
+<meta name="description" content="48 recetas de drinks temáticos para la Copa del Mundo 2026. Con y sin alcohol. Un trago por cada selección. Kit digital premium. $9.99 USD.">
+<meta property="og:title" content="Drinks del Mundial 2026 — 48 Países, 48 Recetas">
+<meta property="og:description" content="Un trago temático para cada selección del Mundial 2026. Con y sin alcohol. Ingredientes simples. ¡Perfecto para cada partido!">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://drinks-del-mundial.vercel.app/">
+<meta property="og:locale" content="es_419">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://drinks-del-mundial.vercel.app/">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
 <style>
@@ -88,13 +96,26 @@ footer{padding:3rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,2
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 
-<!-- TRACKING CONFIGURATION
-  1) Cole aqui o script oficial da UTMFY quando você gerar dentro da sua conta.
-  2) Cole aqui também Meta Pixel / Google Ads / GA4 se você for instalar direto na landing page.
-  IMPORTANTE: para ficar 100%, também configure Pixel/Webhook/Postback dentro da Hotmart e na UTMFY.
--->
-<!-- UTMFY SCRIPT AQUI -->
-<!-- META PIXEL / GOOGLE ADS / GA4 AQUI -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1269185695405114');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1269185695405114&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- UTMFY Pixel -->
+<script>window.pixelId="69f8e04553834643df1f6cab";</script>
+<script src="https://cdn.utmify.com.br/scripts/pixel/pixel.js" async></script>
+<!-- End UTMFY Pixel -->
 </head>
 <body>
 
@@ -120,7 +141,7 @@ footer{padding:3rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,2
   </div>
 
   <div class="hero-cta">
-    <a href="#comprar" class="btn-principal">Quiero sentir ese sabor</a>
+    <a href="#comprar" class="btn-principal" onclick="document.getElementById('comprar').scrollIntoView({behavior:'smooth'});return false;">Quiero sentir ese sabor</a>
     <p class="hero-preco">Por solo <strong>$9.99 USD</strong> — acceso inmediato</p>
   </div>
 </section>
@@ -360,22 +381,23 @@ const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.08});
 reveals.forEach(r=>observer.observe(r));
 
-// Checkout Hotmart + preservação automática de UTMs
-// Quando o visitante chegar com ?utm_source=... na landing page,
-// esses parâmetros serão enviados também para o checkout da Hotmart.
+// UTM Passthrough to Hotmart Checkout
 (function(){
-  const checkoutBase = 'https://pay.hotmart.com/G105682623O';
-  const currentParams = new URLSearchParams(window.location.search);
-  const checkoutLinks = document.querySelectorAll('a.hotmart-checkout');
-
-  checkoutLinks.forEach(link => {
-    const finalUrl = new URL(checkoutBase);
-    currentParams.forEach((value, key) => {
-      if (key.toLowerCase().startsWith('utm_') || ['src','sck','fbclid','gclid','ttclid'].includes(key.toLowerCase())) {
-        finalUrl.searchParams.set(key, value);
+  var checkoutBase='https://pay.hotmart.com/G105682623O';
+  var currentParams=new URLSearchParams(window.location.search);
+  var checkoutLinks=document.querySelectorAll('a.hotmart-checkout');
+  checkoutLinks.forEach(function(link){
+    var finalUrl=new URL(checkoutBase);
+    currentParams.forEach(function(value,key){
+      if(key.toLowerCase().startsWith('utm_')||['src','sck','fbclid','gclid','ttclid'].indexOf(key.toLowerCase())!==-1){
+        finalUrl.searchParams.set(key,value);
       }
     });
-    link.href = finalUrl.toString();
+    link.href=finalUrl.toString();
+    // Meta Pixel: track InitiateCheckout on click
+    link.addEventListener('click',function(){
+      if(typeof fbq==='function'){fbq('track','InitiateCheckout',{content_name:'Drinks del Mundial 2026',currency:'USD',value:9.99});}
+    });
   });
 })();
 </script>
