@@ -52,7 +52,7 @@ body{background:var(--preto);color:var(--branco);font-family:'DM Sans',sans-seri
 .drink-pais{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amarelo);margin-bottom:6px}
 .drink-nome{font-family:'Instrument Serif',serif;font-size:1.4rem;color:var(--branco);margin-bottom:10px;line-height:1.2}
 .drink-sensorial{font-size:13px;color:rgba(250,249,245,.55);line-height:1.7;margin-bottom:14px;font-style:italic}
-.drink-tags{display:flex;gap:6px;flex-wrap:wrap}
+.drinks-tags{display:flex;gap:6px;flex-wrap:wrap}
 .drink-tag{font-size:10px;padding:3px 9px;border-radius:100px;border:1px solid rgba(255,255,255,.1);color:rgba(250,249,245,.5)}
 .drink-tag.verde{border-color:rgba(26,140,70,.4);color:#5dcaa5}
 .experiencia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
@@ -96,7 +96,6 @@ footer{padding:3rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,2
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 
-<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -106,16 +105,19 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1269185695405114');
+fbq('init', '3898872526910392');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1269185695405114&ev=PageView&noscript=1"/></noscript>
-<!-- End Meta Pixel Code -->
-
-<!-- UTMFY Pixel -->
-<script>window.pixelId="69f8e04553834643df1f6cab";</script>
-<script src="https://cdn.utmify.com.br/scripts/pixel/pixel.js" async></script>
-<!-- End UTMFY Pixel -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3898872526910392&ev=PageView&noscript=1"/></noscript>
+<script>
+  window.pixelId = "69fc9ee1fd28f3d2dc2ad20d";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
 </head>
 <body>
 
@@ -127,7 +129,7 @@ fbq('track', 'PageView');
   <div class="hero-badge">Kit Digital · Copa del Mundo 2026</div>
   <h1 class="hero-titulo">Drinks<br><span>del Mundial</span></h1>
   <p class="hero-sub">Cierra los ojos. Ahora imagina el borde helado del vaso rozando tus labios.</p>
-  <p class="hero-sensorial">El ácido del limón. El gas que sube. El hielo golpeando el vidrio. La barra gritando el gol. Ese sabor tiene nombre — y cada país del mundo tiene el suyo.</p>
+  <p class="hero-sensorial">El ácido del limón. El gas que sube. El hielo golpeando el vidro. La barra gritando el gol. Ese sabor tiene nombre — y cada país del mundo tiene el suyo.</p>
 
   <div class="hero-flags">
     <span class="flag-tag"><span class="fi fi-br"></span> Brasil</span>
@@ -141,7 +143,7 @@ fbq('track', 'PageView');
   </div>
 
   <div class="hero-cta">
-    <a href="#comprar" class="btn-principal" onclick="document.getElementById('comprar').scrollIntoView({behavior:'smooth'});return false;">Quiero sentir ese sabor</a>
+    <a href="https://pay.hotmart.com/T105698111G?checkoutMode=10" class="btn-principal hotmart-checkout">Quiero sentir ese sabor</a>
     <p class="hero-preco">Por solo <strong>$9.99 USD</strong> — acceso inmediato</p>
   </div>
 </section>
@@ -184,7 +186,7 @@ fbq('track', 'PageView');
     <div class="drink-card">
       <div class="drink-pais">🇫🇷 Francia</div>
       <div class="drink-nome">Kir Royal de Mbappé</div>
-      <div class="drink-sensorial">Las burbujas subiendo en la copa. El morado de la grosella extendiéndose. Dulce, delicado, elegante — como el fútbol francés cuando está inspirado.</div>
+      <div class="drink-sensorial">Las burbujas subiendo en la copa. El morado de la grosella extendiéndose. Dulce, delicado, elegante — como el fútbol francês cuando está inspirado.</div>
       <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
     </div>
     <div class="drink-card">
@@ -202,7 +204,7 @@ fbq('track', 'PageView');
     <div class="drink-card">
       <div class="drink-pais">🇩🇪 Alemania</div>
       <div class="drink-nome">Radler del Medio Tiempo</div>
-      <div class="drink-sensorial">Ligero, refrescante, preciso. La cerveza que encuentra la limonada. El vaso más rico del descanso. Eficiencia alemana en forma de bebida.</div>
+      <div class="drink-sensorial">Ligero, refrescante, preciso. La cerveza que encuentra la limonada. El vaso mais rico del descanso. Eficiencia alemana en forma de bebida.</div>
       <div class="drink-tags"><span class="drink-tag verde">con alcohol</span><span class="drink-tag verde">sin alcohol</span></div>
     </div>
   </div>
@@ -217,7 +219,7 @@ fbq('track', 'PageView');
     <div class="exp-item">
       <div class="exp-momento">Antes del partido</div>
       <div class="exp-cena">"Chicos, hoy es Japón vs España. ¿Quién quiere el Yuzu Highball?"</div>
-      <div class="exp-desc">Ya sabes qué servir antes del pitazo inicial. El drink del país que va a jugar. Tu grupo nunca más va a querer ver el partido en otro lugar.</div>
+      <div class="exp-desc">Ya sabes qué servir antes del pitazo inicial. El drink del país que va a jugar. Tu grupo nunca más va a querer ver el partido en outro lugar.</div>
     </div>
     <div class="exp-item">
       <div class="exp-momento">En el gol</div>
@@ -331,12 +333,12 @@ fbq('track', 'PageView');
     <div class="passo">
       <div class="passo-num">03</div>
       <div class="passo-titulo">El bar que quiere llenarse</div>
-      <div class="passo-desc">Menú temático por partido. El drink del país que juega ese día. Una experiencia que el cliente no encuentra en ningún otro lugar de la ciudad.</div>
+      <div class="passo-desc">Menú temático por partido. El drink del país que juega ese día. Una experiencia que el cliente no encuentra en nenhum outro lugar de la ciudad.</div>
     </div>
     <div class="passo">
       <div class="passo-num">04</div>
       <div class="passo-titulo">Quien ama descubrir el mundo</div>
-      <div class="passo-desc">Cada receta es una ventana abierta a otro país. Probás el sabor y entendés de dónde viene.</div>
+      <div class="passo-desc">Cada receta é una ventana abierta a outro país. Probás el sabor y entendés de dónde viene.</div>
     </div>
   </div>
 </section>
@@ -347,8 +349,8 @@ fbq('track', 'PageView');
   <div class="secao-label">39 días de Mundial</div>
   <h2 class="secao-titulo">104 partidos.<br>104 momentos<br>para brindar.</h2>
   <div class="estrategia-box">
-    <div class="estrategia-titulo">Usá cada partido como excusa para abrir un nuevo sabor</div>
-    <p class="estrategia-desc">Brasil vs Marruecos el 13 de junio — el Té de la Estrella del Norte está esperando. Japón vs España — ¿cuál elegís, el Yuzu Highball o la Sangria de la Roja? Cada partido es un nuevo descubrimiento. Y cuando alguien pregunte qué estás tomando, vas a tener una historia para contar.</p>
+    <div class="estrategia-titulo">Usá cada partido como excusa para abrir un novo sabor</div>
+    <p class="estrategia-desc">Brasil vs Marruecos el 13 de junio — el Té de la Estrella del Norte está esperando. Japón vs España — ¿cuál elegís, el Yuzu Highball o la Sangria de la Roja? Cada partido es un novo descubrimiento. Y cuando alguien pregunte qué estás tomando, vas a tener una historia para contar.</p>
     <div class="estr-linha">
       <span class="estr-pill">104 partidos en el Mundial</span>
       <span class="estr-pill">48 sabores diferentes</span>
@@ -366,9 +368,9 @@ fbq('track', 'PageView');
   <div class="preco-de">Antes $19.99 USD</div>
   <div class="preco-valor">$9.99</div>
   <div class="preco-label">pago único · acceso inmediato · de por vida</div>
-  <a href="https://pay.hotmart.com/G105682623O" class="btn-principal hotmart-checkout" target="_blank" rel="noopener noreferrer" style="font-size:1.1rem;padding:1.1rem 3rem">Quiero sentir el sabor del mundo</a>
+  <a href="https://pay.hotmart.com/T105698111G?checkoutMode=10" class="btn-principal hotmart-checkout" style="font-size:1.1rem;padding:1.1rem 3rem">Quiero sentir el sabor del mundo</a>
   <div class="frase-sensorial" style="margin-top:2rem;text-align:left">
-    <p>48 países. 48 historias. 48 sabores que nunca vas a olvidar — porque cada uno va a estar mezclado con el recuerdo de un gol, de un grito, de una noche inolvidable de Mundial.</p>
+    <p>48 países. 48 historias. 48 sabores que nunca vas a olvidar — porque cada uno va a estar mezclado con el recuerdo de un gol, de um grito, de una noche inolvidable de Mundial.</p>
   </div>
   <p class="garantia">Pago seguro · PDF enviado al instante · Funciona en celular y computadora</p>
 </section>
@@ -376,16 +378,16 @@ fbq('track', 'PageView');
 <footer>© 2026 Drinks del Mundial · Todos los derechos reservados</footer>
 
 <script>
-// Animação original da página
 const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.08});
 reveals.forEach(r=>observer.observe(r));
 
-// UTM Passthrough to Hotmart Checkout
+// UTM Passthrough & Meta Pixel Tracking
 (function(){
-  var checkoutBase='https://pay.hotmart.com/G105682623O';
+  var checkoutBase='https://pay.hotmart.com/T105698111G?checkoutMode=10';
   var currentParams=new URLSearchParams(window.location.search);
   var checkoutLinks=document.querySelectorAll('a.hotmart-checkout');
+  
   checkoutLinks.forEach(function(link){
     var finalUrl=new URL(checkoutBase);
     currentParams.forEach(function(value,key){
@@ -394,9 +396,15 @@ reveals.forEach(r=>observer.observe(r));
       }
     });
     link.href=finalUrl.toString();
-    // Meta Pixel: track InitiateCheckout on click
-    link.addEventListener('click',function(){
-      if(typeof fbq==='function'){fbq('track','InitiateCheckout',{content_name:'Drinks del Mundial 2026',currency:'USD',value:9.99});}
+    
+    link.addEventListener('click',function(e){
+      if(typeof fbq==='function'){
+        fbq('track','InitiateCheckout',{
+          content_name:'Drinks del Mundial 2026',
+          currency:'USD',
+          value:9.99
+        });
+      }
     });
   });
 })();
